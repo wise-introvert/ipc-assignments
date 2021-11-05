@@ -1,0 +1,14 @@
+In line number 78 of your output:
+The output should be:
+TEST #8 RESULT: SENECA (Answer: SENECA)
+                 ^
+But your output is: 
+TEST #8 RESULT: ST±Áþ (Answer: SENECA)
+                 ^
+
+Unmatched character details:
+The character in column 18 is supposed to be:
+  [E] ASCII code(69)
+but you printed
+  [T] ASCII code(84)
+

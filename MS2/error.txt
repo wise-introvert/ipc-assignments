@@ -1,0 +1,21 @@
+a1ms2.c: In function ‘main’:
+a1ms2.c:76:5: warning: passing argument 1 of ‘getCString’ from incompatible pointer type [enabled by default]
+     getCString(&person.name, 30, 30);
+     ^
+In file included from a1ms2.c:16:0:
+commonHelpers.h:26:6: note: expected ‘char *’ but argument is of type ‘char (*)[30]’
+ void getCString(char *string, int min, int max);
+      ^
+a1ms2.c:85:5: warning: passing argument 1 of ‘getCString’ from incompatible pointer type [enabled by default]
+     getCString(&person.country, 30, 30);
+     ^
+In file included from a1ms2.c:16:0:
+commonHelpers.h:26:6: note: expected ‘char *’ but argument is of type ‘char (*)[30]’
+ void getCString(char *string, int min, int max);
+      ^
+a1ms2.c:35:22: warning: unused variable ‘login’ [-Wunused-variable]
+     struct UserLogin login = { { 0 } };                  // *** DO NOT MODIFY THIS LINE ***
+                      ^
+a1ms2.c:33:20: warning: variable ‘account’ set but not used [-Wunused-but-set-variable]
+     struct Account account = { 0 };                      // *** DO NOT MODIFY THIS LINE ***
+                    ^
