@@ -107,17 +107,13 @@ char getCharOption(char valid[]) {
 	char value;
 	char end;
 	int isValid = 0;
-	scanf(" %c%[\n]", &value, &end);
+	scanf("%c%c", &value, &end);
 
-	if(end == '\n') {
-		for(i = 0; valid[i] != '\0'; i++) {
-			if(valid[i] == value) {
-				isValid = 1;
-				return value;
-			}
+	for(i = 0; valid[i] != '\0'; i++) {
+		if(valid[i] == value) {
+			isValid = 1;
 		}
 	}
-
 
 	while(end != '\n' || isValid <= 0) {
 		if(isValid > 0) {
@@ -148,4 +144,10 @@ void getCString(char *string, int min, int max) {
 		printf(min == max ? "ERROR: String length must be exactly %d chars: " : len(value) < min ? "ERROR: String length must be no more than %d chars: " : "ERROR: String length must be between %d and %d chars: ", min, max);
 		scanf("%[^\n]%c", &value[0], &end);
 	}
+}
+
+int main(void) {
+	getCharOption("qwerty");
+
+	return 0;
 }
