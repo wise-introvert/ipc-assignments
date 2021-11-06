@@ -110,22 +110,27 @@ char getCharOption(char valid[]) {
 	scanf("%c%c", &value, &end);
 
 	for(i = 0; valid[i] != '\0'; i++) {
+		// printf("\t[DEBUG] %c == %c : %s\n", valid[i], value, valid[i] == value ? "TRUE" : "FALSE");
 		if(valid[i] == value) {
+			// printf("\n\t[DEBUG] MATCH FOUND: valid[%d](%c) == %c\n", i, valid[i], value);
 			isValid = 1;
 		}
 	}
 
+	// printf("\n\t===> end: %c\n\t===> isValid: %d\n", end, isValid);
+
 	while(end != '\n' || isValid <= 0) {
+		// printf("\n\t ===> end: %c\n\t===> isValid: %d\n", end, isValid);
 		if(isValid > 0) {
 			clearStandardInputBuffer();
 		}
-		printf("ERROR: Character must be one of [%s]: ", valid);
-		scanf(" %c%c", &value, &end);
+		// printf("ERROR: Character must be one of [%s]: ", valid);
+		scanf("%c%c", &value, &end);
 
 		for(i = 0; valid[i] != '\0'; i++) {
+			// printf("\n\t[DEBUG] %c == %c : %s", valid[i], value, valid[i] == value ? "TRUE" : "FALSE");
 			if(valid[i] == value) {
 				isValid = 1;
-				return value;
 			}
 		}
 	}
@@ -145,3 +150,11 @@ void getCString(char *string, int min, int max) {
 		scanf("%[^\n]%c", &value[0], &end);
 	}
 }
+
+/*
+int main(void) {
+	getCharOption("ACG");
+
+	return 0;
+}
+*/
