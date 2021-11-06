@@ -145,9 +145,3 @@ void getCString(char *string, int min, int max) {
 		scanf("%[^\n]%c", &value[0], &end);
 	}
 }
-
-int main(void) {
-	getCharOption("qwerty");
-
-	return 0;
-}
