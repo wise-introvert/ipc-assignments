@@ -57,8 +57,7 @@ int main(void)
     account.accountNumber = getPositiveInteger();
 
     printf("Enter the account type (A=Agent | C=Customer): ");
-    char valid[2] = {'A', 'C'};
-    account.accountType = getCharOption(valid);
+    account.accountType = getCharOption("AC");
     
     
     // ---------------------------------------------------------

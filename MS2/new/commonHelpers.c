@@ -151,10 +151,10 @@ void getCString(char *string, int min, int max) {
 	}
 }
 
-/*
 int main(void) {
-	getCharOption("ACG");
+	char someChar = getCharOption("ACG");
+
+	printf("someChar: %c", someChar);
 
 	return 0;
 }
-*/

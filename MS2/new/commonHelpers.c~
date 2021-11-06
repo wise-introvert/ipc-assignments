@@ -152,7 +152,7 @@ void getCString(char *string, int min, int max) {
 }
 
 int main(void) {
-	getCharOption("ACG");
+	char someChar = getCharOption("ACG");
 
 	return 0;
 }

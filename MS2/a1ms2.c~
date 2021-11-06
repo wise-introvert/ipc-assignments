@@ -43,7 +43,7 @@ int main(void)
     // ---------------------------------------------------------
     // Confirm MS1 deliverables; apply grade to MS1 accordingly
     // ---------------------------------------------------------
-    // commonHelpersTest();                                           // *** DO NOT MODIFY THIS LINE ***
+    commonHelpersTest();                                           // *** DO NOT MODIFY THIS LINE ***
 
     // ---------------------------------------------------------
     // Account Data: get user input
