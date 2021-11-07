@@ -124,7 +124,7 @@ char getCharOption(char valid[]) {
 		if(isValid > 0) {
 			clearStandardInputBuffer();
 		}
-		// printf("ERROR: Character must be one of [%s]: ", valid);
+		printf("ERROR: Character must be one of [%s]: ", valid);
 		scanf("%c%c", &value, &end);
 
 		for(i = 0; valid[i] != '\0'; i++) {
@@ -149,12 +149,4 @@ void getCString(char *string, int min, int max) {
 		printf(min == max ? "ERROR: String length must be exactly %d chars: " : len(value) < min ? "ERROR: String length must be no more than %d chars: " : "ERROR: String length must be between %d and %d chars: ", min, max);
 		scanf("%[^\n]%c", &value[0], &end);
 	}
-}
-
-int main(void) {
-	char someChar = getCharOption("ACG");
-
-	printf("someChar: %c", someChar);
-
-	return 0;
 }
