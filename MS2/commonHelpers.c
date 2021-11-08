@@ -138,15 +138,14 @@ char getCharOption(char valid[]) {
 	return value;
 }
 
-void getCString(char *string, int min, int max) {
-	char value[max];
+void getCString(char *value, int min, int max) {
 	char end;
-	scanf("%[^\n]%c", &value[0], &end);
+	scanf("%s%c", value, &end);
 	while(end != '\n' || len(value) < min || len(value) > max) {
 		if(len(value) >= min && len(value) <= max) {
 			clearStandardInputBuffer();
 		}
 		printf(min == max ? "ERROR: String length must be exactly %d chars: " : len(value) < min ? "ERROR: String length must be no more than %d chars: " : "ERROR: String length must be between %d and %d chars: ", min, max);
-		scanf("%[^\n]%c", &value[0], &end);
+		scanf("%s%c", value, &end);
 	}
 }
