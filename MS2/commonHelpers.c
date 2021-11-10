@@ -107,29 +107,26 @@ char getCharOption(char valid[]) {
 	char value;
 	char end;
 	int isValid = 0;
-	scanf("%c%c", &value, &end);
+	scanf("%c%c", & value, & end);
 
-	for(i = 0; valid[i] != '\0'; i++) {
-		// printf("\t[DEBUG] %c == %c : %s\n", valid[i], value, valid[i] == value ? "TRUE" : "FALSE");
-		if(valid[i] == value) {
-			// printf("\n\t[DEBUG] MATCH FOUND: valid[%d](%c) == %c\n", i, valid[i], value);
-			isValid = 1;
+	if (end == '\n') {
+		for (i = 0; valid[i] != '\0'; i++) {
+			if (valid[i] == value) {
+				isValid = 1;
+			}
 		}
 	}
 
-	// printf("\n\t===> end: %c\n\t===> isValid: %d\n", end, isValid);
-
-	while(end != '\n' || isValid <= 0) {
-		// printf("\n\t ===> end: %c\n\t===> isValid: %d\n", end, isValid);
-		if(isValid > 0) {
+	while (end != '\n' || isValid <= 0) {
+		if (isValid > 0 || end != '\n') {
 			clearStandardInputBuffer();
 		}
-		printf("ERROR: Character must be one of [%s]: ", valid);
-		scanf("%c%c", &value, &end);
 
-		for(i = 0; valid[i] != '\0'; i++) {
-			// printf("\n\t[DEBUG] %c == %c : %s", valid[i], value, valid[i] == value ? "TRUE" : "FALSE");
-			if(valid[i] == value) {
+		printf("ERROR: Character must be one of [%s]: ", valid);
+		scanf("%c%c", & value, & end);
+
+		for (i = 0; valid[i] != '\0'; i++) {
+			if (valid[i] == value) {
 				isValid = 1;
 			}
 		}

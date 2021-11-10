@@ -283,6 +283,8 @@ void commonHelpersTest(void)
         "2) Enter the word 'SENECA' [ENTER]\n"
         ":>");
     getCString(cstringValue, 6, 6);
+    
+    printf("\n\nvalue returned by the function: %s\n\n", cstringValue);
 
     printf("////////////////////////////////////////\n");
     printf("TEST #8 RESULT: ");
