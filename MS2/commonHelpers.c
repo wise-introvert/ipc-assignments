@@ -77,7 +77,7 @@ double getPositiveDouble() {
 	double value;
 	char end;
 	scanf("%lf%c", &value, &end);
-	while(end != '\n' || value < 0) {
+	while(end != '\n' || value <= 0) {
 		if(value > 0) {
 			clearStandardInputBuffer();
 		}
@@ -137,12 +137,26 @@ char getCharOption(char valid[]) {
 
 void getCString(char *value, int min, int max) {
 	char end;
-	scanf("%s%c", value, &end);
-	while(end != '\n' || len(value) < min || len(value) > max) {
-		if(len(value) >= min && len(value) <= max) {
-			clearStandardInputBuffer();
+	int length;
+	scanf("%10[a-z | A-Z | 0-9/,.-]%c", value, &end);
+	length = len(value);
+	while(end != '\n' || length < min || length > max) {
+		/* printf("\n\n\t\tWhile Loop begins\n\t\tLength: %d\n\t\tEnd: %c\n\n\n", length, end); */
+		clearStandardInputBuffer();
+		if(min == max && length != min) {
+			printf("ERROR: String length must be exactly %d chars: ", min);
+			scanf("%10[a-z | A-Z | 0-9/,.-]%c", value, &end);
+			length = len(value);
+		} else if(length > max) {
+			printf("ERROR: String length must be no more than %d chars: ", max) ;
+			scanf("%10[a-z | A-Z | 0-9/,.-]%c", value, &end);
+			length = len(value);
+		} else if(length < min) {
+			printf("ERROR: String length must be between %d and %d chars: ", min, max) ;
+			scanf("%10[a-z | A-Z | 0-9/,.-]%c", value, &end);
+			length = len(value);
+		}  else {
+			break;
 		}
-		printf(min == max ? "ERROR: String length must be exactly %d chars: " : len(value) < min ? "ERROR: String length must be no more than %d chars: " : "ERROR: String length must be between %d and %d chars: ", min, max);
-		scanf("%s%c", value, &end);
 	}
 }

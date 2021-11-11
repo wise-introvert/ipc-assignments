@@ -30,85 +30,94 @@ void displayAccount(const struct Account account, const struct UserLogin login, 
 
 int main(void)
 {
-    struct Account account = { 0 };                      // *** DO NOT MODIFY THIS LINE ***
-    struct Person person = { { 0 } };                    // *** DO NOT MODIFY THIS LINE ***
-    struct UserLogin login = { { 0 } };                  // *** DO NOT MODIFY THIS LINE ***
+	struct Account account = { 0 };                      // *** DO NOT MODIFY THIS LINE ***
+	struct Person person = { { 0 } };                    // *** DO NOT MODIFY THIS LINE ***
+	struct UserLogin login = { { 0 } }; 
 
-    // Declare other variables you may need here:
+	// Declare other variables you may need here:
 
 
-    printf("Assignment 1 Milestone 2\n");                          // *** DO NOT MODIFY THIS LINE ***
-    printf("=============================================\n\n");   // *** DO NOT MODIFY THIS LINE ***
-    
-    // ---------------------------------------------------------
-    // Confirm MS1 deliverables; apply grade to MS1 accordingly
-    // ---------------------------------------------------------
-    commonHelpersTest();                                           // *** DO NOT MODIFY THIS LINE ***
+	printf("Assignment 1 Milestone 2\n");                          // *** DO NOT MODIFY THIS LINE ***
+	printf("=============================================\n\n");   // *** DO NOT MODIFY THIS LINE ***
 
-    // ---------------------------------------------------------
-    // Account Data: get user input
-    // ---------------------------------------------------------
-    printf("Account Data Input\n");                                // *** DO NOT MODIFY THIS LINE ***
-    printf("----------------------------------------\n");          // *** DO NOT MODIFY THIS LINE ***
+	// ---------------------------------------------------------
+	// Confirm MS1 deliverables; apply grade to MS1 accordingly
+	// ---------------------------------------------------------
+	// commonHelpersTest();                                           // *** DO NOT MODIFY THIS LINE ***
 
-    // Add the necessary code to get user input for each Account member:
-    // !!! 119588218 !!!
-    printf("Enter the account number: ");
-    account.accountNumber = getPositiveInteger();
+	// ---------------------------------------------------------
+	// Account Data: get user input
+	// ---------------------------------------------------------
+	printf("Account Data Input\n");                                // *** DO NOT MODIFY THIS LINE ***
+	printf("----------------------------------------\n");          // *** DO NOT MODIFY THIS LINE ***
 
-    printf("Enter the account type (A=Agent | C=Customer): ");
-    char valid[2] = {'A', 'C'};
-    account.accountType = getCharOption(valid);
-    
-    
-    // ---------------------------------------------------------
-    // Person Data: get user input
-    // ---------------------------------------------------------
-    printf("Person Data Input\n");                        // *** DO NOT MODIFY THIS LINE ***
-    printf("----------------------------------------\n"); // *** DO NOT MODIFY THIS LINE ***
+	// Add the necessary code to get user input for each Account member:
+	// !!! 119588218 !!!
+	printf("Enter the account number: ");
+	account.accountNumber = getPositiveInteger();
 
-    // Add the necessary code to get user input for each Person member:
-    // NOTE: You will need to get the CURRENT YEAR to devise the appropriate range
-    //       when prompting for the birth year data.  There is a function in the 
-    //       commonHelpers library that gives you this!
-   
-    // !!! 119588218 !!!
-    printf("Enter the person's full name (30 chars max): ");
-    getCString(person.name, 1, 30);
+	printf("Enter the account type (A=Agent | C=Customer): ");
+	char valid[2] = {'A', 'C'};
+	account.accountType = getCharOption(valid);
 
-    printf("Enter birth year (current age must be between 18 and 110): ");
-    person.yearOfBirth = getIntFromRange(1911, 2003);
 
-    printf("Enter the household Income: $");
-    person.income = getPositiveDouble();
+	// ---------------------------------------------------------
+	// Person Data: get user input
+	// ---------------------------------------------------------
+	printf("\nPerson Data Input\n");                        // *** DO NOT MODIFY THIS LINE ***
+	printf("----------------------------------------\n"); // *** DO NOT MODIFY THIS LINE ***
 
-    printf("Enter the country (30 chars max.): ");
-    getCString(person.country, 1, 30);
-    
-    // ---------------------------------------------------------
-    // UserLogin Data: get user input
-    // ---------------------------------------------------------
-    printf("User Login Data Input\n");                    // *** DO NOT MODIFY THIS LINE ***
-    printf("----------------------------------------\n"); // *** DO NOT MODIFY THIS LINE ***
+	// Add the necessary code to get user input for each Person member:
+	// NOTE: You will need to get the CURRENT YEAR to devise the appropriate range
+	//       when prompting for the birth year data.  There is a function in the 
+	//       commonHelpers library that gives you this!
 
-    // Add the necessary code to get user input for each UserLogin member:
-    // !!! 119588218 !!!
+	// !!! 119588218 !!!
+	printf("Enter the person's full name (30 chars max): ");
+	getCString(person.name, 1, 30);
 
-    printf("Enter user login (10 chars max): ");
-    getCString(login.username, 1, 10);
+	printf("Enter birth year (current age must be between 18 and 110): ");
+	person.yearOfBirth = getIntFromRange(1911, 2003);
 
-    printf("Enter the password (must be 8 chars in length): ");
-    getCString(login.password, 8, 8);
+	printf("Enter the household Income: $");
+	person.income = getPositiveDouble();
 
-    // Display all the entered data
-    // ---------------------------------------------------------
+	printf("Enter the country (30 chars max.): ");
+	getCString(person.country, 1, 30);
 
-    // Call function to display the Account record:
-    displayAccount(account, login, person);
+	// ---------------------------------------------------------
+	// UserLogin Data: get user input
+	// ---------------------------------------------------------
+	printf("\nUser Login Data Input\n");                    // *** DO NOT MODIFY THIS LINE ***
+	printf("----------------------------------------\n"); // *** DO NOT MODIFY THIS LINE ***
 
-    printf("\nAssignment #1 Milestone #2 completed!\n");  // *** DO NOT MODIFY THIS LINE ***
+	// Add the necessary code to get user input for each UserLogin member:
+	// !!! 119588218 !!!
 
-    return 0; // *** DO NOT MODIFY THIS LINE ***
+	printf("Enter user login (10 chars max): ");
+	printf("\n\n\tusername before assignment: %s\n", login.username);
+	getCString(login.username, 1, 10);
+	printf("\n\tusername after assignment: %s\n\n", login.username);
+
+	printf("Enter the password (must be 8 chars in length): ");
+	printf("\n\n\tpassword before assignment: %s\n", login.password);
+	getCString(login.password, 8, 8);
+	printf("\n\tpassword after assignment: %s\n\n", login.password);
+	printf("\n\tusername after password's assignment: %s\n\n", login.username);
+
+	// Display all the entered data
+	// ---------------------------------------------------------
+
+	printf("\n\n\t\tLogin Details\n\n");
+	printf("\tUsername: %s", login.username);
+	printf("\n\tPassword: %s\n\n", login.password);
+
+	// Call function to display the Account record:
+	displayAccount(account, login, person);
+
+	printf("\nAssignment #1 Milestone #2 completed!\n");  // *** DO NOT MODIFY THIS LINE ***
+
+	return 0; // *** DO NOT MODIFY THIS LINE ***
 }
 
 // ------------------------------------------------------------------
@@ -117,12 +126,18 @@ int main(void)
 // Display Account details: Add the missing code!
 void displayAccount(const struct Account account, const struct UserLogin login, const struct Person person)
 {
-    printf("Acct# Acct.Type Full Name       Birth Income      Country    Login      Password\n");
-    printf("----- --------- --------------- ----- ----------- ---------- ---------- --------\n");
+	printf("\n\n\t\tLogin Details\n\n");
+	printf("\tUsername: %s", login.username);
+	printf("\n\tPassword: %s\n\n", login.password);
 
-    // Display the respective data to align to the table header above:
-    // !!! 119588218 !!!
-    printf("%d %c %s %d %lf %s %s %s", account.accountNumber, account.accountType, person.name, person.yearOfBirth, person.income, person.country, login.username, login.password);
+	printf("\nAcct# Acct.Type Full Name       Birth Income      Country    Login      Password\n");
+	printf("----- --------- --------------- ----- ----------- ---------- ---------- --------\n");
+
+	printf("\n\n\tusername: %s\n\tpassword: %s\n\tusername(-10s): %-10s\n\tpassword(8s): %8s\n\n", login.username, login.password, login.username, login.password);
+
+	// Display the respective data to align to the table header above:
+	// !!! 119588218 !!!
+	printf("%05d %-9s %-15s %5d %11.2lf %-10s %-10s %s", account.accountNumber, account.accountType == 'A' ? "AGENT" : "CUSTOMER", person.name, person.yearOfBirth, person.income, person.country, login.username, login.password);
 
 }
 
@@ -130,191 +145,189 @@ void displayAccount(const struct Account account, const struct UserLogin login, 
 // *** DO NOT MODIFY THIS FUNCTION DEFINITION ***
 void commonHelpersTest(void)
 {
-    int intValue;
-    double dblValue;
-    char charValue, cstringValue[7];
+	int intValue;
+	double dblValue;
+	char charValue, cstringValue[7];
 
-    // ---------------------------------------------------------------------
-    // TEST #1
-    printf("TEST #1 - Instructions:\n"
-        "1) Enter the word 'error'  [ENTER]\n"
-        "2) Enter the number '-100' [ENTER]\n"
-        ":>");
-    intValue = getInteger();
+	// ---------------------------------------------------------------------
+	// TEST #1
+	printf("TEST #1 - Instructions:\n"
+			"1) Enter the word 'error'  [ENTER]\n"
+			"2) Enter the number '-100' [ENTER]\n"
+			":>");
+	intValue = getInteger();
 
-    printf("////////////////////////////////////////\n");
-    printf("TEST #1 RESULT: ");
-    if (intValue == -100)
-    {
-        printf("*** PASS *** \n");
-    }
-    else
-    {
-        printf("### FAILED ###\n");
-    }
-    printf("////////////////////////////////////////\n\n");
+	printf("////////////////////////////////////////\n");
+	printf("TEST #1 RESULT: ");
+	if (intValue == -100)
+	{
+		printf("*** PASS *** \n");
+	}
+	else
+	{
+		printf("### FAILED ###\n");
+	}
+	printf("////////////////////////////////////////\n\n");
 
-    // ---------------------------------------------------------------------
-    // TEST #2
-    printf("TEST #2 - Instructions:\n"
-        "1) Enter the number '-100' [ENTER]\n"
-        "2) Enter the number '200'  [ENTER]\n"
-        ":>");
-    intValue = getPositiveInteger();
+	// ---------------------------------------------------------------------
+	// TEST #2
+	printf("TEST #2 - Instructions:\n"
+			"1) Enter the number '-100' [ENTER]\n"
+			"2) Enter the number '200'  [ENTER]\n"
+			":>");
+	intValue = getPositiveInteger();
 
-    printf("////////////////////////////////////////\n");
-    printf("TEST #2 RESULT: ");
-    if (intValue == 200)
-    {
-        printf("*** PASS *** \n");
-    }
-    else
-    {
-        printf("### FAILED ###\n");
-    }
-    printf("////////////////////////////////////////\n\n");
+	printf("////////////////////////////////////////\n");
+	printf("TEST #2 RESULT: ");
+	if (intValue == 200)
+	{
+		printf("*** PASS *** \n");
+	}
+	else
+	{
+		printf("### FAILED ###\n");
+	}
+	printf("////////////////////////////////////////\n\n");
 
-    // ---------------------------------------------------------------------
-    // TEST #3
-    printf("TEST #3 - Instructions:\n"
-        "1) Enter the word 'error' [ENTER]\n"
-        "2) Enter the number '-4'  [ENTER]\n"
-        "3) Enter the number '12'  [ENTER]\n"
-        "4) Enter the number '-3'  [ENTER]\n"
-        ":>");
-    intValue = getIntFromRange(-3, 11);
+	// ---------------------------------------------------------------------
+	// TEST #3
+	printf("TEST #3 - Instructions:\n"
+			"1) Enter the word 'error' [ENTER]\n"
+			"2) Enter the number '-4'  [ENTER]\n"
+			"3) Enter the number '12'  [ENTER]\n"
+			"4) Enter the number '-3'  [ENTER]\n"
+			":>");
+	intValue = getIntFromRange(-3, 11);
 
-    printf("////////////////////////////////////////\n");
-    printf("TEST #3 RESULT: ");
-    if (intValue == -3)
-    {
-        printf("*** PASS *** \n");
-    }
-    else
-    {
-        printf("### FAILED ###\n");
-    }
-    printf("////////////////////////////////////////\n\n");
+	printf("////////////////////////////////////////\n");
+	printf("TEST #3 RESULT: ");
+	if (intValue == -3)
+	{
+		printf("*** PASS *** \n");
+	}
+	else
+	{
+		printf("### FAILED ###\n");
+	}
+	printf("////////////////////////////////////////\n\n");
 
-    // ---------------------------------------------------------------------
-    // TEST #4
-    printf("TEST #4 - Instructions:\n"
-        "1) Enter the number '14' [ENTER]\n"
-        ":>");
-    intValue = getIntFromRange(-40, 14);
+	// ---------------------------------------------------------------------
+	// TEST #4
+	printf("TEST #4 - Instructions:\n"
+			"1) Enter the number '14' [ENTER]\n"
+			":>");
+	intValue = getIntFromRange(-40, 14);
 
-    printf("////////////////////////////////////////\n");
-    printf("TEST #4 RESULT: ");
-    if (intValue == 14)
-    {
-        printf("*** PASS *** \n");
-    }
-    else
-    {
-        printf("### FAILED ###\n");
-    }
-    printf("////////////////////////////////////////\n\n");
+	printf("////////////////////////////////////////\n");
+	printf("TEST #4 RESULT: ");
+	if (intValue == 14)
+	{
+		printf("*** PASS *** \n");
+	}
+	else
+	{
+		printf("### FAILED ###\n");
+	}
+	printf("////////////////////////////////////////\n\n");
 
-    // ---------------------------------------------------------------------
-    // TEST #5
-    printf("TEST #5 - Instructions:\n"
-        "1) Enter the word 'error'     [ENTER]\n"
-        "2) Enter the number '-150.75' [ENTER]\n"
-        ":>");
-    dblValue = getDouble();
+	// ---------------------------------------------------------------------
+	// TEST #5
+	printf("TEST #5 - Instructions:\n"
+			"1) Enter the word 'error'     [ENTER]\n"
+			"2) Enter the number '-150.75' [ENTER]\n"
+			":>");
+	dblValue = getDouble();
 
-    printf("////////////////////////////////////////\n");
-    printf("TEST #5 RESULT: ");
-    if (dblValue == -150.75)
-    {
-        printf("*** PASS *** \n");
-    }
-    else
-    {
-        printf("### FAILED ###\n");
-    }
-    printf("////////////////////////////////////////\n\n");
+	printf("////////////////////////////////////////\n");
+	printf("TEST #5 RESULT: ");
+	if (dblValue == -150.75)
+	{
+		printf("*** PASS *** \n");
+	}
+	else
+	{
+		printf("### FAILED ###\n");
+	}
+	printf("////////////////////////////////////////\n\n");
 
-    // ---------------------------------------------------------------------
-    // TEST #6
-    printf("TEST #6 - Instructions:\n"
-        "1) Enter the number '-22.11' [ENTER]\n"
-        "2) Enter the number '225.55' [ENTER]\n"
-        ":>");
-    dblValue = getPositiveDouble();
+	// ---------------------------------------------------------------------
+	// TEST #6
+	printf("TEST #6 - Instructions:\n"
+			"1) Enter the number '-22.11' [ENTER]\n"
+			"2) Enter the number '225.55' [ENTER]\n"
+			":>");
+	dblValue = getPositiveDouble();
 
-    printf("////////////////////////////////////////\n");
-    printf("TEST #6 RESULT: ");
-    if (dblValue == 225.55)
-    {
-        printf("*** PASS *** \n");
-    }
-    else
-    {
-        printf("### FAILED ###\n");
-    }
-    printf("////////////////////////////////////////\n\n");
+	printf("////////////////////////////////////////\n");
+	printf("TEST #6 RESULT: ");
+	if (dblValue == 225.55)
+	{
+		printf("*** PASS *** \n");
+	}
+	else
+	{
+		printf("### FAILED ###\n");
+	}
+	printf("////////////////////////////////////////\n\n");
 
-    // ---------------------------------------------------------------------
-    // TEST #7
-    printf("TEST #7 - Instructions:\n"
-        "1) Enter the character 'R' [ENTER]\n"
-        "2) Enter the character 'p' [ENTER]\n"
-        "3) Enter the character 'r' [ENTER]\n"
-        ":>");
-    charValue = getCharOption("qwerty");
+	// ---------------------------------------------------------------------
+	// TEST #7
+	printf("TEST #7 - Instructions:\n"
+			"1) Enter the character 'R' [ENTER]\n"
+			"2) Enter the character 'p' [ENTER]\n"
+			"3) Enter the character 'r' [ENTER]\n"
+			":>");
+	charValue = getCharOption("qwerty");
 
-    printf("////////////////////////////////////////\n");
-    printf("TEST #7 RESULT: ");
-    if (charValue == 'r')
-    {
-        printf("*** PASS *** \n");
-    }
-    else
-    {
-        printf("### FAILED ###\n");
-    }
-    printf("////////////////////////////////////////\n\n");
+	printf("////////////////////////////////////////\n");
+	printf("TEST #7 RESULT: ");
+	if (charValue == 'r')
+	{
+		printf("*** PASS *** \n");
+	}
+	else
+	{
+		printf("### FAILED ###\n");
+	}
+	printf("////////////////////////////////////////\n\n");
 
-    // ---------------------------------------------------------------------
-    // TEST #8
-    printf("TEST #8: - Instructions:\n"
-        "1) Enter the word 'horse'  [ENTER]\n"
-        "2) Enter the word 'SENECA' [ENTER]\n"
-        ":>");
-    getCString(cstringValue, 6, 6);
-    
-    printf("\n\nvalue returned by the function: %s\n\n", cstringValue);
+	// ---------------------------------------------------------------------
+	// TEST #8
+	printf("TEST #8: - Instructions:\n"
+			"1) Enter the word 'horse'  [ENTER]\n"
+			"2) Enter the word 'SENECA' [ENTER]\n"
+			":>");
+	getCString(cstringValue, 6, 6);
 
-    printf("////////////////////////////////////////\n");
-    printf("TEST #8 RESULT: ");
-    printf("%s (Answer: SENECA)\n", cstringValue);
-    printf("////////////////////////////////////////\n\n");
+	printf("////////////////////////////////////////\n");
+	printf("TEST #8 RESULT: ");
+	printf("%s (Answer: SENECA)\n", cstringValue);
+	printf("////////////////////////////////////////\n\n");
 
-    // ---------------------------------------------------------------------
-    // TEST #9
-    printf("TEST #9: - Instructions:\n"
-        "1) Enter the words 'Seneca College' [ENTER]\n"
-        "2) Enter the word 'IPC'             [ENTER]\n"
-        ":>");
-    getCString(cstringValue, 3, 6);
+	// ---------------------------------------------------------------------
+	// TEST #9
+	printf("TEST #9: - Instructions:\n"
+			"1) Enter the words 'Seneca College' [ENTER]\n"
+			"2) Enter the word 'IPC'             [ENTER]\n"
+			":>");
+	getCString(cstringValue, 3, 6);
 
-    printf("////////////////////////////////////////\n");
-    printf("TEST #9 RESULT: ");
-    printf("%s (Answer: IPC)\n", cstringValue);
-    printf("////////////////////////////////////////\n\n");
+	printf("////////////////////////////////////////\n");
+	printf("TEST #9 RESULT: ");
+	printf("%s (Answer: IPC)\n", cstringValue);
+	printf("////////////////////////////////////////\n\n");
 
-    // ---------------------------------------------------------------------
-    // TEST #10
-    printf("TEST #10: - Instructions:\n"
-        "1) Enter the word 'ipc'    [ENTER]\n"
-        "2) Enter the word 'SCHOOL' [ENTER]\n"
-        ":>");
-    getCString(cstringValue, 4, 6);
+	// ---------------------------------------------------------------------
+	// TEST #10
+	printf("TEST #10: - Instructions:\n"
+			"1) Enter the word 'ipc'    [ENTER]\n"
+			"2) Enter the word 'SCHOOL' [ENTER]\n"
+			":>");
+	getCString(cstringValue, 4, 6);
 
-    printf("////////////////////////////////////////\n");
-    printf("TEST #10 RESULT: ");
-    printf("%s (Answer: SCHOOL)\n", cstringValue);
-    printf("////////////////////////////////////////\n\n");
+	printf("////////////////////////////////////////\n");
+	printf("TEST #10 RESULT: ");
+	printf("%s (Answer: SCHOOL)\n", cstringValue);
+	printf("////////////////////////////////////////\n\n");
 
 }
