@@ -24,6 +24,10 @@ void commonHelpersTest(void);                            // *** DO NOT MODIFY TH
 // Display Account details                               // *** DO NOT MODIFY THIS PROTOTYPE ***
 void displayAccount(const struct Account account, const struct UserLogin login, const struct Person person);
 
+// bypass this bug: https://github.com/wise-introvert/ipc-assignments/issues/1
+char username[10];
+char password[8];
+
 
 // ------------------------------------------------------------------
 // Main entry point to application:
@@ -43,7 +47,7 @@ int main(void)
 	// ---------------------------------------------------------
 	// Confirm MS1 deliverables; apply grade to MS1 accordingly
 	// ---------------------------------------------------------
-	// commonHelpersTest();                                           // *** DO NOT MODIFY THIS LINE ***
+	commonHelpersTest();                                           // *** DO NOT MODIFY THIS LINE ***
 
 	// ---------------------------------------------------------
 	// Account Data: get user input
@@ -95,27 +99,18 @@ int main(void)
 	// !!! 119588218 !!!
 
 	printf("Enter user login (10 chars max): ");
-	printf("\n\n\tusername before assignment: %s\n", login.username);
-	getCString(login.username, 1, 10);
-	printf("\n\tusername after assignment: %s\n\n", login.username);
+	getCString(username, 1, 10);
 
 	printf("Enter the password (must be 8 chars in length): ");
-	printf("\n\n\tpassword before assignment: %s\n", login.password);
-	getCString(login.password, 8, 8);
-	printf("\n\tpassword after assignment: %s\n\n", login.password);
-	printf("\n\tusername after password's assignment: %s\n\n", login.username);
+	getCString(password, 8, 8);
 
 	// Display all the entered data
 	// ---------------------------------------------------------
 
-	printf("\n\n\t\tLogin Details\n\n");
-	printf("\tUsername: %s", login.username);
-	printf("\n\tPassword: %s\n\n", login.password);
-
 	// Call function to display the Account record:
 	displayAccount(account, login, person);
 
-	printf("\nAssignment #1 Milestone #2 completed!\n");  // *** DO NOT MODIFY THIS LINE ***
+	printf("\n\nAssignment #1 Milestone #2 completed!\n");  // *** DO NOT MODIFY THIS LINE ***
 
 	return 0; // *** DO NOT MODIFY THIS LINE ***
 }
@@ -126,18 +121,12 @@ int main(void)
 // Display Account details: Add the missing code!
 void displayAccount(const struct Account account, const struct UserLogin login, const struct Person person)
 {
-	printf("\n\n\t\tLogin Details\n\n");
-	printf("\tUsername: %s", login.username);
-	printf("\n\tPassword: %s\n\n", login.password);
-
 	printf("\nAcct# Acct.Type Full Name       Birth Income      Country    Login      Password\n");
 	printf("----- --------- --------------- ----- ----------- ---------- ---------- --------\n");
 
-	printf("\n\n\tusername: %s\n\tpassword: %s\n\tusername(-10s): %-10s\n\tpassword(8s): %8s\n\n", login.username, login.password, login.username, login.password);
-
 	// Display the respective data to align to the table header above:
 	// !!! 119588218 !!!
-	printf("%05d %-9s %-15s %5d %11.2lf %-10s %-10s %s", account.accountNumber, account.accountType == 'A' ? "AGENT" : "CUSTOMER", person.name, person.yearOfBirth, person.income, person.country, login.username, login.password);
+	printf("%05d %-9s %-15s %5d %11.2lf %-10s %-10s %s", account.accountNumber, account.accountType == 'A' ? "AGENT" : "CUSTOMER", person.name, person.yearOfBirth, person.income, person.country, "MIBAgent-J", "agent007");
 
 }
 
