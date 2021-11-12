@@ -136,25 +136,36 @@ char getCharOption(char valid[]) {
 }
 
 void getCString(char *value, int min, int max) {
+	// printf("\n\n======================== Function call ========================\n\n");
 	char end;
 	int length;
-	scanf("%10[a-z | A-Z | 0-9/,.-]%c", value, &end);
+	scanf("%[^\n]%c", value, &end);
 	length = len(value);
+	// printf("\n\n\t\tvalue: %s\n\t\tLength: %d\n\t\tend: %c", value, length, end);
 	while(end != '\n' || length < min || length > max) {
-		/* printf("\n\n\t\tWhile Loop begins\n\t\tLength: %d\n\t\tEnd: %c\n\n\n", length, end); */
-		clearStandardInputBuffer();
+		// printf("\n\n\t======================== While Loop ========================\n\n");
+		// printf("\n\n\t\tmin: %d\n\t\tmax: %d\n\t\tlength: %d", min, max, length);
 		if(min == max && length != min) {
+			// clearStandardInputBuffer();
 			printf("ERROR: String length must be exactly %d chars: ", min);
-			scanf("%10[a-z | A-Z | 0-9/,.-]%c", value, &end);
+			scanf("%[^\n]%c", value, &end);
 			length = len(value);
+			// printf("\n\n\t\t============== New Value Rec ==============\n\n");
+			// printf("\n\n\t\tvalue: %s\n\t\tLength: %d\n\t\tend: %c", value, length, end);
 		} else if(length > max) {
+			// clearStandardInputBuffer();
 			printf("ERROR: String length must be no more than %d chars: ", max) ;
-			scanf("%10[a-z | A-Z | 0-9/,.-]%c", value, &end);
+			scanf("%[^\n]%c", value, &end);
 			length = len(value);
+			// printf("\n\n\t\t============== New Value Rec ==============\n\n");
+			// printf("\n\n\t\tvalue: %s\n\t\tLength: %d\n\t\tend: %c", value, length, end);
 		} else if(length < min) {
+			// clearStandardInputBuffer();
 			printf("ERROR: String length must be between %d and %d chars: ", min, max) ;
-			scanf("%10[a-z | A-Z | 0-9/,.-]%c", value, &end);
+			scanf("%[^\n]%c", value, &end);
 			length = len(value);
+			// printf("\n\n\t\t============== New Value Rec ==============\n\n");
+			// printf("\n\n\t\tvalue: %s\n\t\tLength: %d\n\t\tend: %c", value, length, end);
 		}  else {
 			break;
 		}
